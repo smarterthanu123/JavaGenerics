@@ -1,0 +1,42 @@
+# IntelliJ IDEA
+.idea/
+
+# Compiled files
+*.class
+*.war
+*.ear
+*.iml
+*.jar
+
+# Logs and databases
+*.log
+*.sqlite
+*.sql
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+
+# Gradle
+build/
+.gradle/
+
+# Maven
+target/
+.mvn/
+
+# Eclipse
+.settings/
+bin/
+target/
+
+# Miscellaneous
+*.swp
+*~.nib
+.idea_modules/
+*.keystore
