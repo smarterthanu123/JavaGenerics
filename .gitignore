@@ -40,3 +40,4 @@ target/
 *~.nib
 .idea_modules/
 *.keystore
+out/
