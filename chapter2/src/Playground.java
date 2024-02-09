@@ -4,9 +4,9 @@ import java.util.List;
 public class Playground {
     public static void main(String[] args) {
         Parent parent1 = new Parent(3);
-        Child child = new Child(3,3.0);
-        Child child2 = new Child(1,1.0);
-        Child child3 = new Child(2,1.0);
+        Child child = new Child(3, 3.0);
+        Child child2 = new Child(1, 1.0);
+        Child child3 = new Child(2, 1.0);
         MyList<Parent> parentMyList = new MyList<Parent>();
         parentMyList.add(parent1);
         System.out.println(parentMyList.contains(child)); // True as parent1.equals(child) is true.
@@ -24,7 +24,7 @@ public class Playground {
     }
 }
 
-class Parent  {
+class Parent {
     int pObj;
 
     Parent(int pObj) {
@@ -34,7 +34,7 @@ class Parent  {
     @Override
     public boolean equals(Object o) {
         System.out.println("Comparing parents");
-        if(! (o instanceof Parent)) {
+        if (!(o instanceof Parent)) {
             return false;
         }
 
@@ -54,7 +54,7 @@ class Child extends Parent {
     @Override
     public boolean equals(Object o) {
         System.out.println("Comparing children");
-        if(! (o instanceof Child)) {
+        if (!(o instanceof Child)) {
             return false;
         }
 
@@ -63,6 +63,7 @@ class Child extends Parent {
 //        && super.equals(o);
     }
 }
+
 class MyList<T> {
     List<T> parentExtensionObjs;
 
@@ -75,8 +76,8 @@ class MyList<T> {
     }
 
     public <O extends T> boolean contains(O obj) {
-        for(T item: parentExtensionObjs) {
-            if(item.equals(obj)) {
+        for (T item : parentExtensionObjs) {
+            if (item.equals(obj)) {
                 return true;
             }
         }
@@ -84,11 +85,11 @@ class MyList<T> {
     }
 
     public boolean containsBetter(Object obj) {
-       for(T item: parentExtensionObjs) {
-           if(item.equals(obj)) {
-               return true;
-           }
-       }
-       return false;
+        for (T item : parentExtensionObjs) {
+            if (item.equals(obj)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
