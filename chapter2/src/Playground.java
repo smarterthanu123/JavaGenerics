@@ -15,12 +15,12 @@ public class Playground {
         System.out.println(parentMyList.contains(child3)); // TRUE again!!
         // Child.equals is called here, dynamic method dispatch.
 
-        Parent childParent = child2;
+        Parent childParent = new Child(2, 3.0);
         MyList<Child> childList = new MyList<Child>();
         childList.add(child);
 
 //        System.out.println(childList.contains(childParent)); // This is not possible in contains.
-        System.out.println(childList.containsBetter(childParent)); // This is not possible in contains.
+        System.out.println(childList.containsObject(childParent));
     }
 }
 
@@ -84,7 +84,7 @@ class MyList<T> {
         return false;
     }
 
-    public boolean containsBetter(Object obj) {
+    public boolean containsObject(Object obj) {
         for (T item : parentExtensionObjs) {
             if (item.equals(obj)) {
                 return true;
