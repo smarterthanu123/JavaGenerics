@@ -20,7 +20,7 @@ public class GetPutRule {
         // And this is obvi allowed because ther is no risk of runtime error as any object ? super X is pointing to will
         // be definitely subtype of object.
 
-        for(Object obj: numSuper) {
+        for (Object obj : numSuper) {
             System.out.println(obj);
         }
     }
