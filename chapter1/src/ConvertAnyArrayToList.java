@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ConvertAnyArrayToList {
     public static void main(String[] args) {
-        Integer[] arr = {1,2,3,4};
+        Integer[] arr = {1, 2, 3, 4};
         System.out.println(toList(arr));
         List<Integer> ints = toList();
         System.out.println(toList("Hello", "World"));
@@ -15,7 +15,7 @@ public class ConvertAnyArrayToList {
 
     private static <T> List<T> toList(T... arr) {
         List<T> list = new ArrayList<T>();
-        for(T ele: arr) {
+        for (T ele : arr) {
             list.add(ele);
         }
         return list;

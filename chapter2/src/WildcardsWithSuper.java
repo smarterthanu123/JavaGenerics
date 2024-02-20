@@ -24,7 +24,6 @@ public class WildcardsWithSuper {
 //        doubleSuper.add("something"); // Does not work.
 
 
-
         WildcardsWithSuper.<Number>copy(nums, ints);
         System.out.println(nums);
 

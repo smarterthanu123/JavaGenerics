@@ -12,14 +12,14 @@ public class ComparableGenericExample {
 
         System.out.println(findMaxGeneric(parents).pObj);
 
-        Child child1 = new Child(1,1000.0);
+        Child child1 = new Child(1, 1000.0);
         Child child2 = new Child(2, 500.0);
         Child child3 = new Child(3, 200.0);
         List<Child> children = Arrays.asList(child1, child2, child3);
 
         System.out.println(findMaxGeneric(children).cObj);
 
-        SmallerChild smallerChild1 = new SmallerChild("make", 1,1000.0);
+        SmallerChild smallerChild1 = new SmallerChild("make", 1, 1000.0);
         SmallerChild smallerChild2 = new SmallerChild("world", 2, 500.0);
         SmallerChild smallerChild3 = new SmallerChild("better", 3, 200.0);
         SmallerChild2 smallerChild4 = new SmallerChild2("place", 4, 300.0);
@@ -31,12 +31,12 @@ public class ComparableGenericExample {
         System.out.println(ComparableGenericExample.findMaxGeneric(Arrays.asList(smallerChild1, smallerChild2, smallerChild3, smallerChild4)).cObj);
     }
 
-    static <T extends Comparable<? super T>> T findMaxGeneric(Collection<? extends  T> collection) {
+    static <T extends Comparable<? super T>> T findMaxGeneric(Collection<? extends T> collection) {
         T maxi = null;
-        for(T item: collection) {
-            if(maxi == null) {
+        for (T item : collection) {
+            if (maxi == null) {
                 maxi = item;
-            } else if (item.compareTo(maxi) > 0){
+            } else if (item.compareTo(maxi) > 0) {
                 maxi = item;
             }
         }

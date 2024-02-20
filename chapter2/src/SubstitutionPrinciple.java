@@ -13,14 +13,14 @@ public class SubstitutionPrinciple {
         Integer i = 2;
         n = i; // Assignment possible as Integer is subtype of Number.
         System.out.println(n);
-        System.out.println(add(n,i)); // Assigning Integer to Number argument of the method.
-        System.out.println(add(n,3.14)); // Assigning double (will be boxed to Double by compiler) to Number argument of
+        System.out.println(add(n, i)); // Assigning Integer to Number argument of the method.
+        System.out.println(add(n, 3.14)); // Assigning double (will be boxed to Double by compiler) to Number argument of
         // the method.
 
         // Substitution principle works only when a is subtype of b (the whole type).
         // For eg, List<Integer> is not a subtype of List<Number>
         List<Number> nums;
-        List<Integer> ints = Arrays.asList(1,2,3);
+        List<Integer> ints = Arrays.asList(1, 2, 3);
         // nums = ints; DOES NOT WORK!
 
         // But interestingly, Integer[] is subtype of Number[]. To make this work in Lists as well, we can use wilcards.
