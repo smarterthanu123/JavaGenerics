@@ -17,18 +17,22 @@ public class ComparableGenericExample {
         Child child3 = new Child(3, 200.0);
         List<Child> children = Arrays.asList(child1, child2, child3);
 
+        // Child does not extend comparable, but with findMaxGeneric it's still possible to compare max (on the basis
+        // of parent comparator).
         System.out.println(findMaxGeneric(children).cObj);
 
         SmallerChild smallerChild1 = new SmallerChild("make", 1, 1000.0);
         SmallerChild smallerChild2 = new SmallerChild("world", 2, 500.0);
         SmallerChild smallerChild3 = new SmallerChild("better", 3, 200.0);
-        SmallerChild2 smallerChild4 = new SmallerChild2("place", 4, 300.0);
+        SmallestChild smallestChild1 = new SmallestChild("place", 4, 300.0);
         List<SmallerChild> smallerChildren = Arrays.asList(smallerChild1, smallerChild2, smallerChild3);
 
+        // Writing child here just for learning purpose, ideally nothing is required and T will be deduced as
+        // SmallerChild automatically.
         System.out.println(ComparableGenericExample.<Child>findMaxGeneric(smallerChildren).cObj);
 
-        // Just for learning purpose, does not make much sense.
-        System.out.println(ComparableGenericExample.findMaxGeneric(Arrays.asList(smallerChild1, smallerChild2, smallerChild3, smallerChild4)).cObj);
+        // Just for learning purpose, does not make much sense. As makes T as parent in this
+        System.out.println(ComparableGenericExample.findMaxGeneric(Arrays.asList(smallerChild1, smallerChild2, smallerChild3, smallestChild1)).cObj);
     }
 
     static <T extends Comparable<? super T>> T findMaxGeneric(Collection<? extends T> collection) {
@@ -90,19 +94,19 @@ class SmallerChild extends Child {
 
 }
 
-class SmallerChild2 extends Child {
+class SmallestChild extends Child {
     String scObj;
 
-    SmallerChild2(String scObj, Integer pObj, Double cObj) {
+    SmallestChild(String scObj, Integer pObj, Double cObj) {
         super(pObj, cObj);
         this.scObj = scObj;
     }
 
     @Override
     public int compareTo(Parent o) {
-        // Implement comparison logic for SmallerChild
-        if (o instanceof SmallerChild2) {
-            SmallerChild2 other = (SmallerChild2) o;
+        // Implement comparison logic for SmallerChild2
+        if (o instanceof SmallestChild) {
+            SmallestChild other = (SmallestChild) o;
             return this.scObj.compareTo(other.scObj);
         }
 
