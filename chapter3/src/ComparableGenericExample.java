@@ -33,7 +33,7 @@ public class ComparableGenericExample {
     // SmallerChild automatically.
     System.out.println(ComparableGenericExample.<Child>findMaxGeneric(smallerChildren).cObj);
 
-    // Just for learning purpose, does not make much sense. As makes T as parent in this
+    // Just for learning purpose, does not make much sense. This would take child as T.
     System.out.println(ComparableGenericExample.findMaxGeneric(
         Arrays.asList(smallerChild1, smallerChild2, smallerChild3, smallestChild1)).cObj);
   }
@@ -61,6 +61,7 @@ class Parent implements Comparable<Parent> {
 
   @Override
   public int compareTo(Parent o) {
+    System.out.println("Parent's compareTo was called.");
     return this.pObj.compareTo(o.pObj);
   }
 }
@@ -88,6 +89,7 @@ class SmallerChild extends Child {
   // Being done here just for learning purpose.
   @Override
   public int compareTo(Parent o) {
+    System.out.println("Smaller child's compareTo was called.");
     // Implement comparison logic for SmallerChild
     if (o instanceof SmallerChild) {
       SmallerChild other = (SmallerChild) o;
@@ -111,6 +113,7 @@ class SmallestChild extends Child {
 
   @Override
   public int compareTo(Parent o) {
+    System.out.println("Smallest child's compareTo was called.");
     // Implement comparison logic for SmallerChild2
     if (o instanceof SmallestChild) {
       SmallestChild other = (SmallestChild) o;

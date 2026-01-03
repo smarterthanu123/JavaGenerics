@@ -21,6 +21,4 @@ public class ElementToListComparator {
     return (o1, o2) -> eleComparator.compare(Collections.max(o1, eleComparator),
         Collections.max(o2, eleComparator));
   }
-
-
 }
